@@ -1,0 +1,47 @@
+name: Weekly Study
+
+on:
+  schedule:
+    # 매주 토요일 22시 (KST) → UTC 13시
+    - cron: '0 13 * * 6'
+    # 매주 일요일 0시 (KST) → UTC 15시
+    - cron: '0 15 * * 0'
+  workflow_dispatch:
+
+jobs:
+  weekly-study:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests PyGithub
+
+      # 토요일 22시: 리마인드
+      - name: Send Reminder
+        if: >
+          github.event_name == 'workflow_dispatch' ||
+          (github.event_name == 'schedule' && github.event.schedule == '0 13 * * 6')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          MATTERMOST_WEBHOOK_URL: ${{ secrets.MATTERMOST_WEBHOOK_URL }}
+        run: python scripts/reminder.py
+
+      # 일요일 0시: 제출 체크
+      - name: Check Submissions
+        if: >
+          github.event_name == 'workflow_dispatch' ||
+          (github.event_name == 'schedule' && github.event.schedule == '0 15 * * 0')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          MATTERMOST_WEBHOOK_URL: ${{ secrets.MATTERMOST_WEBHOOK_URL }}
+        run: python scripts/check_submissions.py
