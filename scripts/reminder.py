@@ -5,7 +5,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from github import Github
-from scripts.calculate_weeks import get_previous_and_current_week
+from calculate_weeks import get_previous_and_current_week
 
 ORG_NAME = "SSAFY-while-true"
 

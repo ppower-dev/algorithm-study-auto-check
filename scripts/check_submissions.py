@@ -43,8 +43,7 @@ def main():
 
     final_message = "\n".join(report_lines)
     final_message += "\n\n이번 주도 모두 수고 많으셨습니다!🔥\n"
-    final_message += "**X**로 표시된 분들은 커피 쏘는거…☕️\n"
-    final_message += "약속이죠?😉"
+    final_message += "**X**로 표시된 분들은 내일 커피…☕\n약속이죠?😆"
 
     # 웹훅 전송
     if DISCORD_WEBHOOK_URL:
