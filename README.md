@@ -57,7 +57,7 @@ GiyHub Actions가 자동으로 체크를 수행하려면 **Secrets** 설정이 �
 
 ### 📌 3️. Discord 웹훅 설정 방법
 (Discord를 사용하는 경우만 등록하세요.)
-1. Discord 서버에서 **서버 설정 -> Integrations -> Sebhooks** 로 이동
+1. Discord 서버에서 **서버 설정 -> Integrations -> Webhooks** 로 이동
 2. **"Create Weebhook"** 버튼 클릭
 3. **보낼 채널을 지정하고, Webhook URL을 복사**
 4. GitHub에서 **Secrets (DISCORD_WEBHOOK_URL)** 에 등록
