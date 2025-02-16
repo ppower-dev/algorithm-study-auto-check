@@ -28,7 +28,6 @@
 ## 📝 사용 예시
 [SSAFY 알고리즘 스터디 while True:](https://github.com/SSAFY-while-true)
 
----
 
 ## 🚀 사용 방법
 
