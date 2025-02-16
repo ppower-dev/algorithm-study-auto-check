@@ -14,6 +14,7 @@
 ### ✅ 1. **리포지토리 이름에 'infra'를 포함하지 마세요!**
 - 'infra-repo', 'infra-study' 등의 이름이 포함된 리포지토리는 **자동 체크에서 제외됩니다.**
 - **자신의 깃허브 닉네임**이나 **개인 리포지토리 이름에 'infra'가 포함되지 않도록 수정**해야 합니다.
+
 ### ✅ 2. ##오가나이제이션 구조 사용**
 - **반드시 깃허브 오가나이제이션을 생성**한 뒤, 각 스터디원(멤버)의 리포지토리를 **오가나이제이션 내부**에 두어야 합니다.
 - 이 때, 각 리포지토리의 name은 스터디원(멤버)의 깃허브 닉네임으로 설정합니다.
@@ -26,8 +27,12 @@
 ---
 
 ## 📝 사용 예시
-[SSAFY 알고리즘 스터디 while True:](https://github.com/SSAFY-while-true)
+<img src="https://i.imgur.com/YYRni78.jpeg" alt="리마인더 발송 예시" width="50%">
+<img src="https://i.imgur.com/MfJOgC3.jpeg" alt="제출 체킹 메시지 발송 예시" width="400">
 
+[실사용 중인 스터디](https://github.com/SSAFY-while-true)
+
+---
 
 ## 🚀 사용 방법
 
