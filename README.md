@@ -57,7 +57,7 @@ GiyHub Actions가 자동으로 체크를 수행하려면 **Secrets** 설정이 �
 
 ### 📌 3️. Discord 웹훅 설정 방법
 (Discord를 사용하는 경우만 등록하세요.)
-1. Discord 서버에서 **서버 설정 -> Integrations -> Webhooks** 로 이동
+1. Discord 서버에서 **서버 설정 -> Integrations(통합) -> Webhooks** 로 이동
 2. **"Create Weebhook"** 버튼 클릭
 3. **보낼 채널을 지정하고, Webhook URL을 복사**
 4. GitHub에서 **Secrets (DISCORD_WEBHOOK_URL)** 에 등록
@@ -65,11 +65,8 @@ GiyHub Actions가 자동으로 체크를 수행하려면 **Secrets** 설정이 �
 ### 📌 4️. Mattermost 웹훅 설정 방법
 (Mattermost를 사용하는 경우만 등록하세요.)
 
-> [!Warning]
-> Mattermost 앱에서 Integrations 로 접근하는 방법을 아직 찾지 못했습니다. 만약 방법을 알고 계신다면 PR 부탁드립니다🙏
-
-1. Mattermost에서 **"Integrations" -> "Incoming Webhooks"**로 이동
-2. **"Add Incoming Webhook"** 버튼 클릭
+1. Mattermost 좌상단 메뉴 -> **"통합" -> "전체 Incoming Webhook"**로 이동
+2. **"Incoming Webhook 추가하기"** 버튼 클릭
 3. **Webhook을 사용할 Private 채널 선택 후 저장**
 4. 생성된 **Webhok URL을 복사**
 5. GitHub에서 **Secrets (MATTERMOST_WEBHOOK_URL)에 등록**
