@@ -10,7 +10,8 @@ def calculate_week(year, month, day):
     monday = date - timedelta(days=date.weekday())
     week_number = ((monday - first_day_of_month).days // 7) + 1
     # 0주차 방지: 최소 주차는 1부터 시작
-    week_number = max(1, week_number)
+    if week_number == 0:
+        week_number = 1
 
     return f"{date.strftime('%Y%m')}_{week_number}"
 
