@@ -2,26 +2,40 @@ from datetime import datetime, timedelta
 
 def calculate_week(year, month, day):
     """
-    월요일을 기준으로 주차를 계산합니다.
+    일요일을 기준으로 주차를 계산합니다.
     예: 2024년 2월 15일 → '202402_3'
     """
     date = datetime(year, month, day)
     first_day_of_month = date.replace(day=1)
-    monday = date - timedelta(days=date.weekday())
-    week_number = ((monday - first_day_of_month).days // 7) + 1
-    # 0주차 방지: 최소 주차는 1부터 시작
-    if week_number == 0:
+    
+    # 첫 날의 요일 (월=0, ..., 일=6)
+    first_day_weekday = first_day_of_month.weekday()
+
+    # 첫 번째 일요일 찾기
+    if first_day_weekday != 6:
+        first_sunday = first_day_of_month + timedelta(days=(6 - first_day_weekday))
+    else:
+        first_sunday = first_day_of_month
+    
+    # 주차 계산 (일요일이 포함된 주 기준)
+    if date < first_sunday:
         week_number = 1
+    else:
+        week_number = ((date - first_sunday).days // 7) + 2  # 첫 주차는 1로 시작
 
     return f"{date.strftime('%Y%m')}_{week_number}"
 
 def get_previous_and_current_week():
-    # 한국 시간(UTC+9)을 고려
     now = datetime.utcnow() + timedelta(hours=9)
 
+    # 일요일이면 토요일로 조정
+    if now.weekday() == 6:
+        now -= timedelta(days=1)
+    elif now.weekday() == 0:
+        now -= timedelta(days=2)
+
     current_week = calculate_week(now.year, now.month, now.day)
-    last_week = now - timedelta(days=7)
-    previous_week = calculate_week(last_week.year, last_week.month, last_week.day)
+    previous_week = calculate_week((now - timedelta(days=7)).year, (now - timedelta(days=7)).month, (now - timedelta(days=7)).day)
 
     return previous_week, current_week
 
